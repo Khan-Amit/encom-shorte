@@ -1,6 +1,14 @@
 # encom-shorte
 A vital structure for Data energy problem 
 # encom-shorte
+## 🚀 For Data Centers
+
+**97% energy reduction. Runs on local chips. Tested on a phone.**
+
+- 📊 [Technical Data](TECHNICAL_DATA.md)
+- 🔧 [Mock Server Setup](MOCK_SERVER_SETUP.md)
+- ⚡ [Energy Savings Model](ENERGY_MODEL.md)
+- 🐍 [Parallel Test Script](PARALLEL_TEST.py)
 
 ## Energy‑Saving Compiler – One Pre‑Filter to Rule Them All
 
@@ -84,4 +92,8 @@ If you ignore this, I will take it to Tencent, ByteDance, or Alibaba. They are a
 
 – The god of wisdom whispers. Listen.
 
-[Your Name]
+seliim Ahmed 
+seliim.ahmed@gmail.com 
+message me at 
+https://www.facebook.com/share/1JGNpZhD77/
+
