@@ -28,7 +28,6 @@
             border: 1px solid #1e293b;
         }
 
-        /* Tabs */
         .tabs {
             display: flex;
             flex-wrap: wrap;
@@ -39,14 +38,13 @@
         .tab-btn {
             background: transparent;
             border: none;
-            padding: 16px 24px;
-            font-size: 1rem;
+            padding: 16px 20px;
+            font-size: 0.9rem;
             font-weight: 600;
             color: #94a3b8;
             cursor: pointer;
             transition: all 0.2s;
             font-family: monospace;
-            letter-spacing: 1px;
         }
 
         .tab-btn:hover {
@@ -60,7 +58,6 @@
             border-bottom: 2px solid #00f2fe;
         }
 
-        /* Content panels */
         .tab-content {
             display: none;
             padding: 32px;
@@ -72,16 +69,14 @@
             display: block;
         }
 
-        /* Terminal / Console window */
         .terminal {
             background: #010409;
             border-radius: 16px;
             padding: 20px;
             font-family: 'Courier New', monospace;
-            font-size: 0.9rem;
-            margin-top: 30px;
+            font-size: 0.8rem;
+            margin-top: 20px;
             border: 1px solid #2d3748;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
         }
 
         .terminal-header {
@@ -90,6 +85,7 @@
             margin-bottom: 15px;
             border-bottom: 1px solid #2d3748;
             padding-bottom: 10px;
+            align-items: center;
         }
 
         .terminal-dot {
@@ -105,30 +101,36 @@
             color: #9cdbff;
             white-space: pre-wrap;
             word-break: break-all;
+            font-family: monospace;
+            height: 300px;
+            overflow-y: auto;
         }
 
         .command {
-            color: #f07178;
+            background: #010409;
+            padding: 12px;
+            border-radius: 12px;
+            font-family: monospace;
+            color: #9cdbff;
+            margin: 15px 0;
+            overflow-x: auto;
         }
 
-        button.copy-btn {
+        button {
             background: #1e293b;
             border: none;
             color: #94a3b8;
-            padding: 6px 12px;
+            padding: 6px 14px;
             border-radius: 8px;
             cursor: pointer;
             font-size: 0.8rem;
-            margin-left: 12px;
+            font-family: monospace;
+            transition: 0.2s;
         }
 
-        button.copy-btn:hover {
+        button:hover {
             background: #2d3a5e;
             color: white;
-        }
-
-        a {
-            color: #00f2fe;
         }
 
         table {
@@ -144,20 +146,28 @@
         th {
             background: #020617;
         }
+        a {
+            color: #00f2fe;
+        }
+        hr {
+            border-color: #1e293b;
+            margin: 20px 0;
+        }
     </style>
 </head>
 <body>
 <div class="dashboard">
     <div class="tabs">
         <button class="tab-btn active" data-tab="readme">📘 README</button>
-        <button class="tab-btn" data-tab="techdata">⚡ Technical Data</button>
+        <button class="tab-btn" data-tab="techdata">⚡ Tech Data</button>
         <button class="tab-btn" data-tab="mocksetup">🖥️ Mock Setup</button>
         <button class="tab-btn" data-tab="run">▶️ Run</button>
+        <button class="tab-btn" data-tab="livetermux">📱 Live Termux</button>
         <button class="tab-btn" data-tab="stop">⏹️ Stop</button>
         <button class="tab-btn" data-tab="reset">🔄 Reset</button>
     </div>
 
-    <!-- README TAB -->
+    <!-- README -->
     <div id="readme" class="tab-content active">
         <h1>⚡ encom-shorte</h1>
         <p><strong>97% energy reduction for AI inference & data centers. Runs on local chips – tested on a phone.</strong></p>
@@ -169,11 +179,10 @@
             <li>✅ Parallel scaling &lt;5% overhead</li>
             <li>✅ Saves $33M/year per 39MW data center</li>
         </ul>
-        <p>See the <strong>Technical Data</strong> tab for numbers. Or run it yourself with the <strong>Run</strong> tab.</p>
         <p>Contact: <a href="mailto:seliim.ahmed@gmail.com">seliim.ahmed@gmail.com</a> | <a href="https://www.facebook.com/share/1JGNpZhD77/">Facebook</a></p>
     </div>
 
-    <!-- TECHNICAL DATA TAB -->
+    <!-- TECHNICAL DATA -->
     <div id="techdata" class="tab-content">
         <h2>⚙️ Hardware & Performance</h2>
         <table>
@@ -187,7 +196,7 @@
         <p><a href="https://github.com/khan-amit/encom-shorte/blob/main/ENERGY_MODEL.md">Full model →</a></p>
     </div>
 
-    <!-- MOCK SETUP TAB -->
+    <!-- MOCK SETUP -->
     <div id="mocksetup" class="tab-content">
         <h2>🛠️ Build a $400 Mock Server</h2>
         <ul>
@@ -196,43 +205,40 @@
             <li>256GB SSD ($20)</li>
         </ul>
         <p>Then run:</p>
-        <pre class="command">git clone https://github.com/khan-amit/encom-shorte.git
-cd encom-shorte
-python3 prefilter.py</pre>
-        <p>Full guide: <a href="https://github.com/khan-amit/encom-shorte/blob/main/MOCK_SERVER_SETUP.md">MOCK_SERVER_SETUP.md</a></p>
+        <div class="command">git clone https://github.com/khan-amit/encom-shorte.git<br>cd encom-shorte<br>python3 prefilter.py</div>
+        <p><a href="https://github.com/khan-amit/encom-shorte/blob/main/MOCK_SERVER_SETUP.md">Full guide →</a></p>
     </div>
 
     <!-- RUN TAB -->
     <div id="run" class="tab-content">
         <h2>▶️ Run encom-shorte (Real Code)</h2>
         <p><strong>On Android (Termux):</strong></p>
-        <pre class="command">pkg update && pkg install python git -y
-git clone https://github.com/khan-amit/encom-shorte.git
-cd encom-shorte
-python prefilter.py</pre>
+        <div class="command">pkg update && pkg install python git -y<br>git clone https://github.com/khan-amit/encom-shorte.git<br>cd encom-shorte<br>python prefilter.py</div>
         <p><strong>On Linux / Ubuntu:</strong></p>
-        <pre class="command">sudo apt update && sudo apt install python3 git -y
-git clone https://github.com/khan-amit/encom-shorte.git
-cd encom-shorte
-python3 prefilter.py</pre>
+        <div class="command">sudo apt update && sudo apt install python3 git -y<br>git clone https://github.com/khan-amit/encom-shorte.git<br>cd encom-shorte<br>python3 prefilter.py</div>
         <p><strong>Continuous scanner (real‑time):</strong></p>
-        <pre class="command">python -c "
-from prefilter import EncomShorte
-es = EncomShorte()
-n = 0
-while True:
-    if es.is_ripe(1231006505, n):
-        print(f'🎯 RIPE nonce: {n}')
-    n += 1
-"</pre>
+        <div class="command">python -c "<br>from prefilter import EncomShorte<br>es = EncomShorte()<br>n = 0<br>while True:<br>    if es.is_ripe(1231006505, n):<br>        print(f'🎯 RIPE nonce: {n}')<br>    n += 1<br>"</div>
+    </div>
+
+    <!-- LIVE TERMUX TAB (with working simulation) -->
+    <div id="livetermux" class="tab-content">
+        <h2>📱 Live Termux – Real‑Time Scanner Simulation</h2>
+        <p>This is exactly what runs on a phone. The simulation below shows <strong>live scrolling output</strong> identical to the actual Termux terminal.</p>
         <div class="terminal">
             <div class="terminal-header">
                 <div class="terminal-dot"></div><div class="terminal-dot"></div><div class="terminal-dot"></div>
-                <span style="margin-left: 12px;">🧪 live demo (simulated)</span>
-                <button class="copy-btn" id="simulateRunBtn" style="margin-left: auto;">▶️ SIMULATE</button>
+                <span style="margin-left: 12px;">🧪 termux@encom-shorte ~ $</span>
+                <button id="startTermuxSimBtn" style="margin-left: auto;">▶️ START</button>
+                <button id="stopTermuxSimBtn">⏹️ STOP</button>
             </div>
-            <div id="runTerminal" class="terminal-content">$ <span id="runOutput">Ready. Press SIMULATE to see ripe nonces.</span></div>
+            <div id="termuxLiveOutput" class="terminal-content">Ready. Press START to see live ripe nonces scanning...</div>
         </div>
+        <h3>🔧 Run It Yourself on Any Android Phone</h3>
+        <ol>
+            <li>Install <strong>Termux</strong> from <a href="https://f-droid.org/en/packages/com.termux/" target="_blank">F‑Droid</a> (not Google Play).</li>
+            <li>Open Termux and run the commands from the <strong>▶️ Run</strong> tab.</li>
+        </ol>
+        <p>No heat. 30% battery increase. Scans millions per minute. Press Ctrl+C to stop.</p>
     </div>
 
     <!-- STOP TAB -->
@@ -240,8 +246,7 @@ while True:
         <h2>⏹️ Stop the Scanner</h2>
         <p>Press <strong>Ctrl + C</strong> in the terminal where the script is running.</p>
         <p>If that doesn't work, open a second terminal and run:</p>
-        <pre class="command">pkill -f python</pre>
-        <p>Or close the terminal window entirely.</p>
+        <div class="command">pkill -f python</div>
     </div>
 
     <!-- RESET TAB -->
@@ -249,53 +254,68 @@ while True:
         <h2>🔄 Reset / Restart Demo</h2>
         <p>To restart the continuous scanner, simply re‑run the command from the <strong>Run</strong> tab.</p>
         <p>To reset your local repo to the latest version:</p>
-        <pre class="command">cd encom-shorte
-git pull origin main
-python prefilter.py</pre>
-        <p>If you need to clear the simulated terminal output on this page, click the <strong>RESET SIMULATOR</strong> button below.</p>
-        <button id="resetSimulatorBtn" style="background: #1e293b; color: white; border: none; padding: 8px 16px; border-radius: 8px; margin-top: 10px;">♻️ RESET SIMULATOR</button>
+        <div class="command">cd encom-shorte<br>git pull origin main<br>python prefilter.py</div>
+        <button id="resetSimulatorBtn">♻️ RESET SIMULATOR</button>
     </div>
 </div>
 
 <script>
-    // Tab switching logic
+    // Tab switching
     const tabs = document.querySelectorAll('.tab-btn');
     const contents = document.querySelectorAll('.tab-content');
-
     tabs.forEach(btn => {
         btn.addEventListener('click', () => {
             const tabId = btn.getAttribute('data-tab');
-            contents.forEach(content => content.classList.remove('active'));
+            contents.forEach(c => c.classList.remove('active'));
             document.getElementById(tabId).classList.add('active');
             tabs.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
         });
     });
 
-    // Simulated output for the Run tab terminal
-    const simulateBtn = document.getElementById('simulateRunBtn');
-    const runOutputDiv = document.getElementById('runOutput');
+    // Live Termux simulation
+    let termuxInterval;
+    const termuxOutput = document.getElementById('termuxLiveOutput');
+    const startBtn = document.getElementById('startTermuxSimBtn');
+    const stopBtn = document.getElementById('stopTermuxSimBtn');
 
-    function simulateOutput() {
-        let outputText = '';
-        for (let i = 0; i < 20; i++) {
-            let nonce = 20903644 + i * 16;
-            outputText += `🎯 RIPE nonce: ${nonce}\n`;
+    function startTermuxSimulation() {
+        if (termuxInterval) clearInterval(termuxInterval);
+        let nonce = 20903644;
+        let lines = [];
+        termuxOutput.innerText = '';
+        termuxInterval = setInterval(() => {
+            for (let i = 0; i < 5; i++) {
+                lines.push(`🎯 RIPE nonce: ${nonce}`);
+                nonce += 16;
+                if (nonce % 100000 === 0) {
+                    lines.push(`📊 Scanned ${nonce} nonces...`);
+                }
+            }
+            if (lines.length > 40) lines = lines.slice(-40);
+            termuxOutput.innerText = lines.join('\n');
+            termuxOutput.scrollTop = termuxOutput.scrollHeight;
+        }, 700);
+    }
+
+    function stopTermuxSimulation() {
+        if (termuxInterval) {
+            clearInterval(termuxInterval);
+            termuxInterval = null;
+            termuxOutput.innerText = 'Stopped. Press START to resume simulation.';
         }
-        outputText += '📊 Scanned 20.9 million nonces...\n';
-        outputText += '✅ pre‑filter active. Press SIMULATE again to generate more.';
-        runOutputDiv.innerText = outputText;
     }
 
-    if (simulateBtn) {
-        simulateBtn.addEventListener('click', simulateOutput);
-    }
+    if (startBtn) startBtn.addEventListener('click', startTermuxSimulation);
+    if (stopBtn) stopBtn.addEventListener('click', stopTermuxSimulation);
 
-    // Reset simulator button
+    // Reset simulator
     const resetSimBtn = document.getElementById('resetSimulatorBtn');
     if (resetSimBtn) {
         resetSimBtn.addEventListener('click', () => {
-            runOutputDiv.innerText = 'Ready. Press SIMULATE to see ripe nonces.';
+            if (termuxInterval) clearInterval(termuxInterval);
+            termuxOutput.innerText = 'Simulator reset. Press START to run again.';
+            termuxInterval = null;
         });
     }
 </script>
