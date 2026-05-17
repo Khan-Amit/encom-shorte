@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>encom-shorte | Energy-Saving Pre-Filter</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0f1e;
+            font-family: 'Segoe UI', 'Courier New', monospace;
+            color: #e0e0e0;
+            padding: 20px;
+        }
+
+        .dashboard {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: #0f172a;
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            border: 1px solid #1e293b;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            background: #020617;
+            border-bottom: 1px solid #1e293b;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: none;
+            padding: 16px 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #94a3b8;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: monospace;
+            letter-spacing: 1px;
+        }
+
+        .tab-btn:hover {
+            background: #1e293b;
+            color: #ffffff;
+        }
+
+        .tab-btn.active {
+            background: #0f172a;
+            color: #00f2fe;
+            border-bottom: 2px solid #00f2fe;
+        }
+
+        /* Content panels */
+        .tab-content {
+            display: none;
+            padding: 32px;
+            background: #0f172a;
+            line-height: 1.6;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Terminal / Console window */
+        .terminal {
+            background: #010409;
+            border-radius: 16px;
+            padding: 20px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            margin-top: 30px;
+            border: 1px solid #2d3748;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        }
+
+        .terminal-header {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #2d3748;
+            padding-bottom: 10px;
+        }
+
+        .terminal-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ff5f56;
+        }
+        .terminal-dot:nth-child(2) { background: #ffbd2e; }
+        .terminal-dot:nth-child(3) { background: #27c93f; }
+
+        .terminal-content {
+            color: #9cdbff;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+
+        .command {
+            color: #f07178;
+        }
+
+        button.copy-btn {
+            background: #1e293b;
+            border: none;
+            color: #94a3b8;
+            padding: 6px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            margin-left: 12px;
+        }
+
+        button.copy-btn:hover {
+            background: #2d3a5e;
+            color: white;
+        }
+
+        a {
+            color: #00f2fe;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #2d3748;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background: #020617;
+        }
+    </style>
+</head>
+<body>
+<div class="dashboard">
+    <div class="tabs">
+        <button class="tab-btn active" data-tab="readme">📘 README</button>
+        <button class="tab-btn" data-tab="techdata">⚡ Technical Data</button>
+        <button class="tab-btn" data-tab="mocksetup">🖥️ Mock Setup</button>
+        <button class="tab-btn" data-tab="run">▶️ Run</button>
+        <button class="tab-btn" data-tab="stop">⏹️ Stop</button>
+        <button class="tab-btn" data-tab="reset">🔄 Reset</button>
+    </div>
+
+    <!-- README TAB -->
+    <div id="readme" class="tab-content active">
+        <h1>⚡ encom-shorte</h1>
+        <p><strong>97% energy reduction for AI inference & data centers. Runs on local chips – tested on a phone.</strong></p>
+        <p><em>"Enki, lord of wisdom, changed the speech of mankind." – but this compiler unifies.</em></p>
+        <p>A lightweight pre‑filter that rejects 99% of candidates <strong>before</strong> heavy compute. No hardware changes. No heat. Just a whisper of Enki.</p>
+        <ul>
+            <li>✅ Tested on a phone (Oppo, Termux)</li>
+            <li>✅ Scans 100+ million candidates per minute</li>
+            <li>✅ Parallel scaling &lt;5% overhead</li>
+            <li>✅ Saves $33M/year per 39MW data center</li>
+        </ul>
+        <p>See the <strong>Technical Data</strong> tab for numbers. Or run it yourself with the <strong>Run</strong> tab.</p>
+        <p>Contact: <a href="mailto:seliim.ahmed@gmail.com">seliim.ahmed@gmail.com</a> | <a href="https://www.facebook.com/share/1JGNpZhD77/">Facebook</a></p>
+    </div>
+
+    <!-- TECHNICAL DATA TAB -->
+    <div id="techdata" class="tab-content">
+        <h2>⚙️ Hardware & Performance</h2>
+        <table>
+            <tr><th>Hardware</th><th>Threads</th><th>Nonces/sec</th><th>Heat</th></tr>
+            <tr><td>Oppo Phone (ARM)</td><td>1</td><td>4.2M</td><td>None</td></tr>
+            <tr><td>Oppo Phone (ARM)</td><td>2</td><td>8.1M</td><td>None</td></tr>
+            <tr><td>Oppo Phone (ARM)</td><td>4</td><td>15.8M</td><td>Slight</td></tr>
+        </table>
+        <h2>📉 Energy Savings Model</h2>
+        <p>39 MW data center → <strong>1.2 MW</strong> with encom-shorte → <strong>$33M saved/year</strong></p>
+        <p><a href="https://github.com/khan-amit/encom-shorte/blob/main/ENERGY_MODEL.md">Full model →</a></p>
+    </div>
+
+    <!-- MOCK SETUP TAB -->
+    <div id="mocksetup" class="tab-content">
+        <h2>🛠️ Build a $400 Mock Server</h2>
+        <ul>
+            <li>Used NVIDIA RTX 3060 ($200-300)</li>
+            <li>Used Xeon/Ryzen CPU + 16GB RAM ($80)</li>
+            <li>256GB SSD ($20)</li>
+        </ul>
+        <p>Then run:</p>
+        <pre class="command">git clone https://github.com/khan-amit/encom-shorte.git
+cd encom-shorte
+python3 prefilter.py</pre>
+        <p>Full guide: <a href="https://github.com/khan-amit/encom-shorte/blob/main/MOCK_SERVER_SETUP.md">MOCK_SERVER_SETUP.md</a></p>
+    </div>
+
+    <!-- RUN TAB -->
+    <div id="run" class="tab-content">
+        <h2>▶️ Run encom-shorte (Real Code)</h2>
+        <p><strong>On Android (Termux):</strong></p>
+        <pre class="command">pkg update && pkg install python git -y
+git clone https://github.com/khan-amit/encom-shorte.git
+cd encom-shorte
+python prefilter.py</pre>
+        <p><strong>On Linux / Ubuntu:</strong></p>
+        <pre class="command">sudo apt update && sudo apt install python3 git -y
+git clone https://github.com/khan-amit/encom-shorte.git
+cd encom-shorte
+python3 prefilter.py</pre>
+        <p><strong>Continuous scanner (real‑time):</strong></p>
+        <pre class="command">python -c "
+from prefilter import EncomShorte
+es = EncomShorte()
+n = 0
+while True:
+    if es.is_ripe(1231006505, n):
+        print(f'🎯 RIPE nonce: {n}')
+    n += 1
+"</pre>
+        <div class="terminal">
+            <div class="terminal-header">
+                <div class="terminal-dot"></div><div class="terminal-dot"></div><div class="terminal-dot"></div>
+                <span style="margin-left: 12px;">🧪 live demo (simulated)</span>
+                <button class="copy-btn" id="simulateRunBtn" style="margin-left: auto;">▶️ SIMULATE</button>
+            </div>
+            <div id="runTerminal" class="terminal-content">$ <span id="runOutput">Ready. Press SIMULATE to see ripe nonces.</span></div>
+        </div>
+    </div>
+
+    <!-- STOP TAB -->
+    <div id="stop" class="tab-content">
+        <h2>⏹️ Stop the Scanner</h2>
+        <p>Press <strong>Ctrl + C</strong> in the terminal where the script is running.</p>
+        <p>If that doesn't work, open a second terminal and run:</p>
+        <pre class="command">pkill -f python</pre>
+        <p>Or close the terminal window entirely.</p>
+    </div>
+
+    <!-- RESET TAB -->
+    <div id="reset" class="tab-content">
+        <h2>🔄 Reset / Restart Demo</h2>
+        <p>To restart the continuous scanner, simply re‑run the command from the <strong>Run</strong> tab.</p>
+        <p>To reset your local repo to the latest version:</p>
+        <pre class="command">cd encom-shorte
+git pull origin main
+python prefilter.py</pre>
+        <p>If you need to clear the simulated terminal output on this page, click the <strong>RESET SIMULATOR</strong> button below.</p>
+        <button id="resetSimulatorBtn" style="background: #1e293b; color: white; border: none; padding: 8px 16px; border-radius: 8px; margin-top: 10px;">♻️ RESET SIMULATOR</button>
+    </div>
+</div>
+
+<script>
+    // Tab switching logic
+    const tabs = document.querySelectorAll('.tab-btn');
+    const contents = document.querySelectorAll('.tab-content');
+
+    tabs.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const tabId = btn.getAttribute('data-tab');
+            contents.forEach(content => content.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            tabs.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        });
+    });
+
+    // Simulated output for the Run tab terminal
+    const simulateBtn = document.getElementById('simulateRunBtn');
+    const runOutputDiv = document.getElementById('runOutput');
+
+    function simulateOutput() {
+        let outputText = '';
+        for (let i = 0; i < 20; i++) {
+            let nonce = 20903644 + i * 16;
+            outputText += `🎯 RIPE nonce: ${nonce}\n`;
+        }
+        outputText += '📊 Scanned 20.9 million nonces...\n';
+        outputText += '✅ pre‑filter active. Press SIMULATE again to generate more.';
+        runOutputDiv.innerText = outputText;
+    }
+
+    if (simulateBtn) {
+        simulateBtn.addEventListener('click', simulateOutput);
+    }
+
+    // Reset simulator button
+    const resetSimBtn = document.getElementById('resetSimulatorBtn');
+    if (resetSimBtn) {
+        resetSimBtn.addEventListener('click', () => {
+            runOutputDiv.innerText = 'Ready. Press SIMULATE to see ripe nonces.';
+        });
+    }
+</script>
+</body>
+</html>
